@@ -1,0 +1,35 @@
+{
+  "name": "karma-remap-coverage",
+  "version": "0.0.1",
+  "description": "Karma reporter that maps coverage to original non transpiled code (TypeScript, ES6/7, etc)",
+  "keywords": [
+    "karma",
+    "coverage",
+    "reporter",
+    "typescript",
+    "babel",
+    "es6",
+    "es7",
+    "istanbul",
+    "map",
+    "remap",
+    "sourcemap",
+    "webpack"
+  ],
+  "main": "remap-coverage.js",
+  "author": "Sergey Shevchenko",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:sshev/karma-remap-coverage.git"
+  },
+  "dependencies": {
+    "remap-istanbul": "^0.6.4"
+  },
+  "peerDependencies": {
+    "karma-coverage": ">=0.5.4"
+  },
+  "engines": {
+    "node": ">=4.2.0"
+  }
+}
