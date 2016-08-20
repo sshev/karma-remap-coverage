@@ -5,6 +5,11 @@ Build on top of `karma-coverage` and `remap-istanbul` - consumes coverage report
 
 Needs no temporary files nor npm post run scripts, works in auto watch mode generating report on every run.
 
+##Installation
+```
+npm install karma-remap-coverage --save-dev
+```
+
 ##Configuration
 1. Enable inline source maps in your transpiler/compiler
 2. Configure karma config to use `karma-coverage` together with `karma-remap-coverage`
