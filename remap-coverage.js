@@ -24,7 +24,7 @@ const RemapCoverageReporter = function(baseReporterDecorator, config, helper) {
 
     Object.keys(options).forEach(reportType => {
       const dest = options[reportType];
-      const prepareDest = new Promise((resolve) => {
+      const prepareDest = new Promise(resolve => {
         // destination dir must exists for file type reports
         if (dest && istanbulFileReportTypes.indexOf(reportType) > -1) {
           helper.mkdirIfNotExists(path.dirname(dest), () => resolve());
