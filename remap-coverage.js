@@ -20,7 +20,7 @@ const RemapCoverageReporter = function(baseReporterDecorator, config, helper) {
 
   this.onCoverageComplete = (browser, coverageReport) => {
     const options = config.remapCoverageReporter || { html: './coverage' };
-    const collector = remap(coverageReport);
+    const collector = remap(coverageReport, config.remapOptions);
 
     Object.keys(options).forEach(reportType => {
       const dest = options[reportType];

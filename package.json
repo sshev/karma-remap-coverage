@@ -1,6 +1,6 @@
 {
   "name": "karma-remap-coverage",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Karma reporter that shows coverage for original non transpiled code (TypeScript, ES6/7, etc)",
   "keywords": [
     "karma",

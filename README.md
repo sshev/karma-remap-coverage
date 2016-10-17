@@ -18,6 +18,7 @@ npm install karma-remap-coverage --save-dev
     * add `remap-coverage` to reporters list: `reporters: ['progress', 'coverage', 'remap-coverage']`
     * save interim coverage report in memory: `coverageReporter: { type: 'in-memory' }`
     * define where to save final reports: `remapCoverageReporter: { html: './coverage' }`
+3. Optionally - configure [remap options](https://github.com/SitePen/remap-istanbul#libremap) in karma config: `remapOptions: { basePath: './dist' }`
 
 ##remapCoverageReporter format
 Key-value pairs where key is report type and value - path to file/dir where to save it. Reporters like `text-summary`, `text-lcov` and `teamcity` can print out to console as well - in this case just provide any falsy value instead of path.
