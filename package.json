@@ -27,7 +27,7 @@
     "url": "git@github.com:sshev/karma-remap-coverage.git"
   },
   "dependencies": {
-    "remap-istanbul": "^0.6.4"
+    "remap-istanbul": "^0.7.0"
   },
   "peerDependencies": {
     "karma-coverage": ">=0.5.4"
