@@ -1,7 +1,7 @@
 # karma-remap-coverage
 Karma reporter that shows coverage for original non transpiled code (TypeScript, ES6/7, etc).
 
-Build on top of `karma-coverage` and `remap-istanbul` - consumes coverage report for raw code and maps it to original files. Transpiler should generate inline source maps in order to make everything work.
+Build on top of `karma-coverage` and `remap-istanbul` - consumes coverage report for raw code and maps it to original files. Transpiler should generate source maps in order to make everything work.
 
 Needs no temporary files nor npm post run scripts, works in "watch" mode generating report on every change.
 
@@ -13,7 +13,7 @@ npm install karma-remap-coverage --save-dev
 ```
 
 ##Configuration
-1. Enable inline source maps in your transpiler/compiler config
+1. Enable source maps in your compiler config
 2. Configure karma config to use `karma-coverage` together with `karma-remap-coverage`:
     * add `remap-coverage` to reporters list: `reporters: ['progress', 'coverage', 'remap-coverage']`
     * save interim coverage report in memory: `coverageReporter: { type: 'in-memory' }`
@@ -25,7 +25,7 @@ Key-value pairs where key is report type and value - path to file/dir where to s
 Example:
 ```javascript
 remapCoverageReporter: {
-  'text-summary': null,
+  'text-summary': null, // to show summary in console
   html: './coverage/html',
   cobertura: './coverage/cobertura.xml'
 }
@@ -34,27 +34,30 @@ remapCoverageReporter: {
 ##TypeScript + webpack example
 Karma config with alternative usage of `karma-webpack` should look something like this:
 
+**tsconfig.json**
+```
+{
+  "compilerOptions": {
+    "sourceMap": true
+    ...
+  }
+}
+```
+
 **karma.conf.js**
 ```javascript
 module.exports = config => config.set({
-
-  webpack: {
-    //...
-    ts: {
-      // override compiler options for "ts-loader"
-      compilerOptions: {
-        sourceMap: false,
-        inlineSourceMap: true
-      }
-    }
-  },
-
-  //...
-
+  
+  files: [
+    './entry-module.spec.ts'
+  ],
   preprocessors: {
+    './entry-module.spec.ts': ['webpack', 'sourcemap'],
     './entry-module.ts': ['coverage']
   },
-
+  
+  ...
+  
   // add both "karma-coverage" and "karma-remap-coverage" reporters
   reporters: ['progress', 'coverage', 'remap-coverage'],
   
@@ -65,13 +68,13 @@ module.exports = config => config.set({
   
   // define where to save final remaped coverage reports
   remapCoverageReporter: {
-    'text-summary': null, // to show summary in console
+    'text-summary': null,
     html: './coverage/html',
     cobertura: './coverage/cobertura.xml'
   },
   
   // make sure both reporter plugins are loaded
   plugins: ['karma-coverage', 'karma-remap-coverage']
-
+  
 });
 ```
