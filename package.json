@@ -1,6 +1,6 @@
 {
   "name": "karma-remap-coverage",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Karma reporter that shows coverage for original non transpiled code (TypeScript, ES6/7, etc)",
   "keywords": [
     "karma",
@@ -27,7 +27,7 @@
     "url": "git@github.com:sshev/karma-remap-coverage.git"
   },
   "dependencies": {
-    "remap-istanbul": "^0.8.0"
+    "remap-istanbul": "0.8.4"
   },
   "peerDependencies": {
     "karma-coverage": ">=0.5.4"
