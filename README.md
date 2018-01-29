@@ -7,12 +7,12 @@ Needs no temporary files nor npm post run scripts, works in "watch" mode generat
 
 ![Example](img/coverage_cmp.png)
 
-##Installation
+## Installation
 ```
 npm install karma-remap-coverage --save-dev
 ```
 
-##Configuration
+## Configuration
 1. Enable source maps in your compiler config
 2. Configure karma config to use `karma-coverage` together with `karma-remap-coverage`:
     * add `remap-coverage` to reporters list: `reporters: ['progress', 'coverage', 'remap-coverage']`
@@ -20,7 +20,7 @@ npm install karma-remap-coverage --save-dev
     * define where to save final reports: `remapCoverageReporter: { html: './coverage' }`
 3. Optionally - configure [remap options](https://github.com/SitePen/remap-istanbul#libremap) in karma config: `remapOptions: { basePath: './dist' }`
 
-##remapCoverageReporter format
+## remapCoverageReporter format
 Key-value pairs where key is report type and value - path to file/dir where to save it. Reporters like `text-summary`, `text-lcov` and `teamcity` can print out to console as well - in this case just provide any falsy value instead of path.
 Example:
 ```javascript
@@ -31,7 +31,7 @@ remapCoverageReporter: {
 }
 ```
 
-##TypeScript + webpack example
+## TypeScript + webpack example
 Karma config with alternative usage of `karma-webpack` should look something like this:
 
 **tsconfig.json**
